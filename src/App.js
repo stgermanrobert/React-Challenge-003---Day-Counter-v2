@@ -24,14 +24,14 @@ function Counter() {
   const date = new Date();
   date.setDate(date.getDate() + Number(count));
 
+  function handleReset() {
+    setCount(0);
+    setStep(1);
+  }
+
   return (
     <div>
       <div>
-        {/* <div>
-          <button onClick={handleStepMinus}>-</button>
-          <span> Step: {step} </span>
-          <button onClick={handleStepPlus}>+</button>
-        </div> */}
         <input
           type="range"
           min="1"
@@ -42,9 +42,6 @@ function Counter() {
         <span>{step}</span>
       </div>
       <div>
-        {/* <button onClick={handleCountMinus}>-</button>
-        <span> Count: {count} </span>
-        <button onClick={handleCountPlus}>+</button> */}
         <button onClick={handleCountMinus}>-</button>
         <input
           type="text"
@@ -59,9 +56,13 @@ function Counter() {
           {count > 0 &&
             `${count} ${count === 1 ? "day" : "days"} from today will be `}
           {count < 0 && `${-count} ${count === -1 ? "day" : "days"} ago was `}
-
           {date.toDateString()}
         </p>
+      </div>
+      <div>
+        {(count !== 0 || step !== 1) && (
+          <button onClick={handleReset}>RESET</button>
+        )}
       </div>
     </div>
   );
