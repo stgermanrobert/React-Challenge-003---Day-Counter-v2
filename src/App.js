@@ -49,7 +49,7 @@ function Counter() {
         <input
           type="text"
           value={count}
-          onChange={(e) => setCount(e.target.value)}
+          onChange={(e) => setCount(Number(e.target.value))}
         ></input>
         <button onClick={handleCountPlus}>+</button>
       </div>
