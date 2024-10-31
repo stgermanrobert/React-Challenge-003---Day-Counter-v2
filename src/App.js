@@ -14,15 +14,15 @@ function Counter() {
   const [count, setCount] = useState(0);
 
   function handleCountMinus() {
-    setCount((c) => c - Number(step));
+    setCount((c) => c - step);
   }
 
   function handleCountPlus() {
-    setCount((c) => c + Number(step));
+    setCount((c) => c + step);
   }
 
   const date = new Date();
-  date.setDate(date.getDate() + Number(count));
+  date.setDate(date.getDate() + count);
 
   function handleReset() {
     setCount(0);
@@ -37,7 +37,7 @@ function Counter() {
           min="1"
           max="10"
           value={step}
-          onChange={(e) => setStep(e.target.value)}
+          onChange={(e) => setStep(Number(e.target.value))}
         ></input>
         <span>{step}</span>
       </div>
